@@ -3,7 +3,7 @@ Code to build a simple Thermometer using the BBC Microbit_V2 Microcontroler.
 The code was written using the makecode editor for the BBC Microbit https://makecode.microbit.org/#editor
 
 # Features of the Thermometer
-1) An 25 LED Matrix to display the Temperature as a Graph
+1) An 25 LED Matrix to display the Temperature as a Graph.  
 <img width="224,33" height="180" alt="image" src="https://github.com/user-attachments/assets/d315d7e0-82f6-4b53-886e-a488383e171d" />
 <br />
 <br />
