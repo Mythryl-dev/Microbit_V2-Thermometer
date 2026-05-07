@@ -6,14 +6,36 @@ def on_button_pressed_a():
     pause2 = 0
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
+def on_button_pressed_ab():
+    global pause2
+    music.set_built_in_speaker_enabled(True)
+    pause2 = 0
+    music.set_volume(75)
+input.on_button_pressed(Button.AB, on_button_pressed_ab)
+
+def on_button_pressed_b():
+    global pause2
+    music.set_built_in_speaker_enabled(False)
+    pause2 = 0
+    music.set_volume(0)
+input.on_button_pressed(Button.B, on_button_pressed_b)
+
 repeat = 0
 repeat_2 = 0
 pause2 = 0
-music.set_built_in_speaker_enabled(False)
+music.set_built_in_speaker_enabled(True)
 pause2 = 0
 music.set_volume(75)
 
 def on_forever():
+    if pause2 == 0:
+        if input.temperature() == 50:
+            basic.show_icon(IconNames.SKULL)
+        else:
+            led.plot_bar_graph(input.temperature(), 50)
+basic.forever(on_forever)
+
+def on_forever2():
     if input.temperature() == 50:
         basic.show_icon(IconNames.SKULL)
         for index in range(4):
@@ -26,14 +48,6 @@ def on_forever():
                     SoundExpressionEffect.NONE,
                     InterpolationCurve.LINEAR),
                 SoundExpressionPlayMode.UNTIL_DONE)
-basic.forever(on_forever)
-
-def on_forever2():
-    if pause2 == 0:
-        if input.temperature() == 50:
-            basic.show_icon(IconNames.SKULL)
-        else:
-            led.plot_bar_graph(input.temperature(), 50)
 basic.forever(on_forever2)
 
 def on_forever3():
